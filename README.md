@@ -30,6 +30,7 @@ Compiled with:
 optimizer='adam'
 loss='binary_crossentropy'
 metrics=['accuracy', 'precision', 'recall', 'AUC']
+
 🏗️ Federated Learning Setup
 Clients: 5
 
@@ -42,20 +43,13 @@ Batch Size: 64
 FedAvg is used to aggregate client weights based on data contribution.
 
 🔐 Differential Privacy
-Laplacian noise is added to data samples for differential privacy:
-
-python
-Copy
-Edit
 def add_differential_privacy(X, epsilon=1.0):
     scale = 1.0 / epsilon
     noise = np.random.laplace(0, scale, X.shape)
     return X + noise
-This ensures individual transaction data cannot be reverse-engineered.
 
 📁 File Structure
-Copy
-Edit
+
 federated-fraud-detection/
 ├── creditcard.csv
 ├── federated_learning.py
@@ -64,43 +58,20 @@ federated-fraud-detection/
 ├── confusion_matrix.png
 ├── roc_curve.png
 └── README.md
-🚀 How to Run
-1. Clone the Repository
-bash
-Copy
-Edit
-git clone https://github.com/your-username/federated-fraud-detection.git
-cd federated-fraud-detection
-2. Install Dependencies
-bash
-Copy
-Edit
-pip install -r requirements.txt
-If requirements.txt is missing, generate it using:
-pip freeze > requirements.txt
 
-3. Run the Code
-bash
-Copy
-Edit
-python federated_learning.py
-Make sure creditcard.csv is placed in the same directory.
-
-🧪 Sample Output
-csharp
-Copy
-Edit
+ Sample Output
 Example of fraud detection on a new transaction:
 Fraud probability: 0.0024
 Transaction classified as: Legitimate
-📊 Visual Outputs
+
+Visual Outputs
 federated_learning_metrics.png – Accuracy, Loss, Precision, Recall, AUC over rounds
 
 confusion_matrix.png – Final confusion matrix
 
 roc_curve.png – ROC curve with AUC
 
-📚 References
+References
 Credit Card Fraud Dataset – Kaggle
 
 Google AI Blog – Federated Learning
@@ -108,4 +79,3 @@ Google AI Blog – Federated Learning
 👨‍💻 Author
 Aditya Sachin Gorave
 B.Tech, Information Technology
-📧 adityagorave2670@gmail.com
